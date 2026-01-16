@@ -1,0 +1,56 @@
+:root {
+  --primary: #1b8f5a;
+  --dark: #1a1a1a;
+  --light: #f8fbf9;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+/* Preloader */
+#preloader { position: fixed; inset: 0; background: #fff; display: flex; justify-content: center; align-items: center; z-index: 10000; transition: 0.5s; }
+.loader { width: 45px; height: 45px; border: 4px solid #f3f3f3; border-top: 4px solid var(--primary); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Header & Top Bar */
+.top-bar { background: #111; color: #ccc; padding: 8px 0; font-size: 0.85rem; }
+.top-bar a { color: #ccc; text-decoration: none; }
+.navbar { padding: 15px 0; transition: 0.3s; }
+.nav-link { font-weight: 500; transition: 0.3s; color: #444 !important; }
+.nav-link:hover { color: var(--primary) !important; }
+
+/* Hero */
+.hero { height: 90vh; position: relative; background: #000; overflow: hidden; }
+.hero video { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)); }
+.hero-content { position: absolute; inset: 0; display: flex; align-items: center; z-index: 10; }
+
+/* Sections */
+.section { padding: 100px 0; }
+.section-title { font-weight: 700; position: relative; padding-bottom: 15px; }
+.section-title::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 60px; height: 3px; background: var(--primary); transform: translateX(-50%); }
+.text-center .section-title::after { left: 50%; }
+#about .section-title::after { left: 0; transform: none; }
+
+/* Cards & Components */
+.stats-box { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; border-bottom: 3px solid var(--primary); }
+.cert-card { background: #fff; padding: 30px 15px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); transition: 0.3s; border: 1px solid #eee; height: 100%; }
+.cert-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+
+/* Gallery */
+.img-wrapper { height: 280px; overflow: hidden; background: #eee; border-radius: 12px; }
+.swap-img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease-in-out; }
+.swap-img.fade-out { opacity: 0; }
+
+/* Footer */
+footer { border-top: 1px solid #333; }
+.bg-black { background-color: #0c0c0c; }
+.footer-links a:hover { color: var(--primary) !important; padding-left: 5px; }
+
+/* WhatsApp Float */
+.whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 999; text-decoration: none; transition: 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1); color: white; }
+
+html { scroll-behavior: smooth; }
