@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/about</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Products Main Page -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/products</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Railway Products -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/products/railway</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Automotive Products -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/products/automotive</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Architectural Products -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/products/architectural</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Industrial Products -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/products/industrial</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Certifications -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/certifications</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Gallery -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/gallery</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/contact</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://www.gayatirubberchemicals.com/privacy-policy</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
+
+<!-- 
+INSTRUCTIONS:
+1. Replace "www.gayatirubberchemicals.com" with your actual domain
+2. Update lastmod dates when pages are modified (format: YYYY-MM-DD)
+3. Submit this sitemap to Google Search Console and Bing Webmaster Tools
+4. Add to robots.txt: Sitemap: https://www.gayatirubberchemicals.com/sitemap.xml
+
+PRIORITY GUIDE:
+1.0 = Most important page (Homepage)
+0.8-0.9 = Very important (Main sections, key products)
+0.5-0.7 = Important (Sub-pages, certifications)
+0.3-0.4 = Less important (Legal pages, policies)
+
+CHANGEFREQ GUIDE:
+daily = Changes every day
+weekly = Changes every week
+monthly = Changes every month
+yearly = Changes once a year
+never = Archived content
+-->

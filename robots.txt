@@ -1,0 +1,74 @@
+# ========================================
+# ROBOTS.TXT
+# Gayatri Rubbers & Chemicals Ltd
+# ========================================
+
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.gayatirubberchemicals.com/sitemap.xml
+
+# ========================================
+# BLOCK ACCESS TO SPECIFIC DIRECTORIES
+# ========================================
+# Uncomment if you have admin or private areas
+# Disallow: /admin/
+# Disallow: /private/
+# Disallow: /cgi-bin/
+
+# ========================================
+# BLOCK SPECIFIC FILE TYPES
+# ========================================
+# Prevent indexing of certain files
+Disallow: /*.php$
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.zip$
+Disallow: /*.tar.gz$
+
+# ========================================
+# BLOCK SPECIFIC FILES
+# ========================================
+# Don't index error pages
+Disallow: /404.html
+
+# ========================================
+# CRAWL DELAY (OPTIONAL)
+# ========================================
+# Slow down aggressive crawlers
+# Crawl-delay: 10
+
+# ========================================
+# SPECIFIC SEARCH ENGINE RULES
+# ========================================
+
+# Google Bot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# ========================================
+# INSTRUCTIONS FOR USE:
+# ========================================
+# 1. Replace "www.gayatirubberchemicals.com" with your actual domain
+# 2. Upload this file to your website root directory (public_html/)
+# 3. Test using Google Search Console's robots.txt Tester
+# 4. Verify using: https://www.yourwebsite.com/robots.txt
+#
+# IMPORTANT:
+# - This file is public and can be viewed by anyone
+# - Don't use it to hide sensitive directories (use .htaccess instead)
+# - Allow: / means crawl everything
+# - Disallow: / means crawl nothing
+# ========================================

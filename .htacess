@@ -1,0 +1,206 @@
+# ========================================
+# .HTACCESS CONFIGURATION
+# For GoDaddy Shared Hosting
+# ========================================
+
+# IMPORTANT: Test after uploading
+# If you get 500 errors, comment out sections one by one
+# to find which directive your host doesn't support
+
+# ========================================
+# PREVENT DIRECTORY BROWSING
+# ========================================
+Options -Indexes
+
+# ========================================
+# PROTECT SENSITIVE FILES
+# ========================================
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(htaccess|htpasswd|env|git|gitignore|log|ini|conf|sql|zip|tar|gz)$">
+  Require all denied
+</FilesMatch>
+
+# ========================================
+# SECURITY HEADERS
+# ========================================
+# Note: Some shared hosts may not support mod_headers
+# If you get 500 error, comment out this entire section
+
+<IfModule mod_headers.c>
+  # Prevent clickjacking attacks
+  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Enable XSS protection in browsers
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Prevent MIME type sniffing
+  Header set X-Content-Type-Options "nosniff"
+  
+  # Referrer Policy
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Permissions Policy (restrict access to browser features)
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  
+  # Remove X-Powered-By header (if present)
+  Header unset X-Powered-By
+</IfModule>
+
+# ========================================
+# CLEAN URLs (REMOVE .html EXTENSION)
+# ========================================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Remove .html extension from URLs
+  # Example: /about.html becomes /about
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^([^/]+)$ $1.html [L]
+  
+  # Remove trailing slash from non-directory URLs
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)/$ /$1 [R=301,L]
+  
+  # ========================================
+  # FORCE HTTPS (UNCOMMENT AFTER SSL INSTALL)
+  # ========================================
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  
+  # ========================================
+  # FORCE WWW OR NON-WWW (CHOOSE ONE)
+  # ========================================
+  
+  # Option 1: Force WWW
+  # RewriteCond %{HTTP_HOST} !^www\.
+  # RewriteCond %{HTTP_HOST} !^localhost [NC]
+  # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+  
+  # Option 2: Force NON-WWW (Recommended)
+  # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+# ========================================
+# CUSTOM ERROR PAGES
+# ========================================
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+ErrorDocument 500 /404.html
+
+# ========================================
+# GZIP COMPRESSION
+# ========================================
+<IfModule mod_deflate.c>
+  # Compress HTML, CSS, JavaScript, Text, XML
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  
+  # Don't compress images (already compressed)
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp)$ no-gzip dont-vary
+</IfModule>
+
+# ========================================
+# BROWSER CACHING
+# ========================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  # CSS and JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  
+  # Fonts
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  
+  # HTML (don't cache too long)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ========================================
+# CACHE CONTROL HEADERS
+# ========================================
+<IfModule mod_headers.c>
+  # Cache static assets for 1 year
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|css|js|woff|woff2)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+  
+  # Don't cache HTML files
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+</IfModule>
+
+# ========================================
+# CHARSET UTF-8
+# ========================================
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .json .txt
+
+# ========================================
+# MIME TYPES
+# ========================================
+<IfModule mod_mime.c>
+  # JavaScript
+  AddType application/javascript js
+  
+  # Images
+  AddType image/webp webp
+  AddType image/svg+xml svg svgz
+  
+  # Fonts
+  AddType application/font-woff woff
+  AddType application/font-woff2 woff2
+</IfModule>
+
+# ========================================
+# PREVENT ACCESS TO BACKUP FILES
+# ========================================
+<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)$">
+  Require all denied
+</FilesMatch>
+
+# ========================================
+# DISABLE SERVER SIGNATURE
+# ========================================
+ServerSignature Off
+
+# ========================================
+# FILE UPLOAD LIMIT (if needed)
+# ========================================
+# php_value upload_max_filesize 20M
+# php_value post_max_size 20M
+
+# ========================================
+# END OF .HTACCESS
+# ========================================
